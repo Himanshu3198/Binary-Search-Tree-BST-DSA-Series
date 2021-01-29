@@ -46,7 +46,7 @@ BstNode* Delete(BstNode* root,int data){
        root->left=Delete(root->left,data);          // search the element to be delete on left part of tree
        }
    else if(data>root->data){
-       root->right=Delete(root->right,data);          // search the element to be delete on left part of tree
+       root->right=Delete(root->right,data);          // search the element to be delete on right part of tree
        }
 
        else{
@@ -58,8 +58,8 @@ BstNode* Delete(BstNode* root,int data){
            }
                       //case 2:  1 child  only  have right child
            else if(root->left==NULL){
-               struct BstNode* temp=root;            //suppose address of delete element is 500 and  single child address is 600 we store address of deleted element 
-                                                    // in temp  and we link the next child address to address of root and then delete  address of element that would be delete
+               struct BstNode* temp=root;            //suppose address of delete element is 500 and  next child address is 600 we store address of deleted element 
+                                                    // in temp  and we link the next child address 600 to address of root and then delete  address of element that would be delete 500
                root=root->right;                    
                delete temp;
            }
