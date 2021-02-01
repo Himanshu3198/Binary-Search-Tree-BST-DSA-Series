@@ -1,3 +1,5 @@
+// find minimum and maximum element in binary search tree
+// time complexity O(h) 
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -90,5 +92,5 @@ int main()
     // inorder(root);
    cout<< FindMin(root)<<"\n";
      cout<< FindMax(root);
-    // return 0;
+    return 0;
 }
