@@ -57,7 +57,7 @@ void findceilfloor(struct Node *root,int &ceil,int &floor,int key){
         ceil=root->data;
         findceilfloor(root->left,ceil,floor,key);
     }
-     if(key>root->data){
+    else{
         floor=root->data;
         findceilfloor(root->right,ceil,floor,key);
     }
