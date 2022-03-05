@@ -10,38 +10,50 @@
  * };
  */
 class BSTIterator {
-     
 public:
-     stack<TreeNode*>s;
-   void left(TreeNode* root)
-{
-while(root!=NULL)
-{
-  s.push(root);
-  root=root->left;
-}
-}
+//      tc O(1) O(n)/O(n)=O(1) 
+//      sc O(h)
+      
+
+      stack<TreeNode*>st;
+    
+   void  solve(TreeNode *root,stack<TreeNode*>&st){
+       
+              TreeNode *temp=root;
+
+         while(temp){
+             
+             st.push(temp);
+             temp=temp->left;
+         }
+         
+       
+   }
     BSTIterator(TreeNode* root) {
-        
-          left(root);
+        solve(root,st);
     }
     
     int next() {
-        
-     TreeNode *curr=s.top();
-        s.pop();
-        
-        if(curr->right){
-            left(curr->right);
+        if(hasNext()){
+            
+           TreeNode * x=st.top();
+            st.pop();
+            
+            if(x->right){
+                 solve(x->right,st);
+            }
+           
+            return x->val;
         }
-        return curr->val;
+        
+        return 0;
+        
     }
     
     bool hasNext() {
-        return s.size()>0;
+      
+         return st.size()>0;
     }
-
-        
 };
 
 /**
